@@ -1,6 +1,7 @@
 plugins {
     id 'org.springframework.boot' version '2.5.5'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'com.google.cloud.tools.jib' version '3.1.4'
     id 'java'
 }
 
@@ -37,4 +38,21 @@ dependencyManagement {
 
 test {
     useJUnitPlatform()
+}
+
+// port 재지정할 것, profile 지정할 것.
+jib {
+    from {
+        image = 'adoptopenjdk:11-jre'
+    }
+    to {
+        image = "gcr.io/${System.getenv('PROJECT_ID')}/${System.getenv('IMAGE_NAME')}"
+        credHelper = 'gcr'
+        tags = ['latest']
+    }
+    container {
+        jvmFlags = ['-DSpring.profiles.active=prod, native', '-Xms512m', '-Xmx512m']
+        ports = ['8080']
+        format = 'OCI'
+    }
 }
