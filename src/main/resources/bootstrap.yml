@@ -21,4 +21,4 @@ spring:
     activate:
       on-profile: prod
 
-app.config-server: config-server
+app.config-server: ${CONFIG_SERVER_URI}

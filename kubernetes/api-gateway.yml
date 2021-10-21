@@ -31,6 +31,8 @@ spec:
         - name: api-gateway
           image: gcr.io/didyouwatch-329208/api-gateway
           env:
+            - name: CONFIG_SERVER_URI
+              value: config-server-service
           #            - name: SPRING_PROFILES_ACTIVE
           #              value: prod
           #            - name: JAVA_OPTS
