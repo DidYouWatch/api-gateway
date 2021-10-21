@@ -32,7 +32,7 @@ spec:
           image: gcr.io/didyouwatch-329208/api-gateway
           env:
             - name: CONFIG_SERVER_URI
-              value: config-server-service
+              value: "config-server-service:80"
           #            - name: SPRING_PROFILES_ACTIVE
           #              value: prod
           #            - name: JAVA_OPTS
