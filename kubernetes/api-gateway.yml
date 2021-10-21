@@ -15,7 +15,6 @@ spec:
         app: api-gateway
         version: 'v1'
     spec:
-      maxRetries: "3"
       affinity:
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
