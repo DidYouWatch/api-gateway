@@ -69,7 +69,7 @@ metadata:
   labels:
     app: api-gateway-servcie
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: api-gateway
   ports:
